@@ -68,35 +68,35 @@ const levels = [
 // Player rankings – edit / add your own
 const players = [
   {
-    name: "PLACEHOLDER",
-    country: "US",
+    name: "zckMS",
+    country: "UK",
     points: 0,
     listRecords: 0,
-    hardest: "PLACEHOLDER",
+    hardest: "Yatagarasu",
     rank: 1
   },
   {
-    name: "PLACEHOLDER",
-    country: "RU",
-    points: 0,
-    listRecords: 0,
-    hardest: "PLACEHOLDER",
-    rank: 0
-  },
-  {
-    name: "PLACEHOLDER",
+    name: "gw1pe",
     country: "PL",
     points: 0,
     listRecords: 0,
-    hardest: "PLACEHOLDER",
-    rank: 0
+    hardest: "The Flawless",
+    rank: 2
   },
   {
-    name: "PLACEHOLDER",
-    country: "EN",
+    name: "devski",
+    country: "PL",
     points: 0,
     listRecords: 0,
-    hardest: "PLACEHOLDER",
+    hardest: "Pyromaniac",
+    rank: 3
+  },
+  {
+    name: "JALURIS",
+    country: "PL",
+    points: 0,
+    listRecords: 0,
+    hardest: "Windy Landscape",
     rank: 0
   }
 ];
