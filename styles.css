@@ -1,3 +1,6 @@
+/* ----------------------------------------------------
+   GLOBAL VARIABLES
+-----------------------------------------------------*/
 :root {
   --bg: #050712;
   --bg-alt: #080b1a;
@@ -16,6 +19,9 @@
   --transition-fast: 0.15s ease-out;
 }
 
+/* ----------------------------------------------------
+   BASE PAGE SETUP
+-----------------------------------------------------*/
 html, body {
   margin: 0;
   padding: 0;
@@ -23,15 +29,25 @@ html, body {
   font-family: 'Inter', sans-serif;
   color: var(--text);
   height: 100%;
+  overflow-x: hidden;
 }
 
+.scroll-y {
+  overflow-y: auto;
+}
+
+/* ----------------------------------------------------
+   LAYOUT WRAPPER
+-----------------------------------------------------*/
 .app-shell {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* HEADER */
+/* ----------------------------------------------------
+   HEADER
+-----------------------------------------------------*/
 header {
   background: var(--bg-alt);
   padding: 16px 30px 20px 30px;
@@ -39,7 +55,7 @@ header {
   box-shadow: var(--shadow-soft);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 99;
 }
 
 .brand {
@@ -79,26 +95,27 @@ header {
   margin-top: 2px;
 }
 
+/* ----------------------------------------------------
+   NAVIGATION
+-----------------------------------------------------*/
 .header-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* NAV */
 nav {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .nav-link {
   background: transparent;
   color: var(--muted);
   border: 1px solid var(--border);
-  padding: 6px 12px;
-  font-size: 13px;
-  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 10px;
   cursor: pointer;
   transition: var(--transition-fast);
 }
@@ -117,16 +134,16 @@ nav {
 .nav-badge {
   background: var(--accent-soft);
   padding: 2px 6px;
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 11px;
   margin-left: 6px;
 }
 
-/* LANG + STATUS */
+/* RIGHT SIDE OF NAV */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 20px;
 }
 
 .lang-switcher select {
@@ -134,7 +151,7 @@ nav {
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 4px 10px;
+  padding: 5px 10px;
 }
 
 .pill-indicator {
@@ -145,48 +162,35 @@ nav {
   border: 1px solid var(--border);
 }
 
-/* METRICS */
+/* ----------------------------------------------------
+   METRICS CARDS
+-----------------------------------------------------*/
 .top-row {
   display: flex;
   gap: 20px;
-  padding: 20px 30px 0 30px;
+  padding: 20px 30px;
 }
 
 .metrics-card {
   background: var(--card);
-  padding: 18px 20px;
+  padding: 20px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   flex: 1;
 }
 
-.metrics-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
 .metrics-title {
   font-weight: 600;
-  font-size: 14px;
-  color: var(--muted);
 }
 
-.badge {
-  font-size: 12px;
-  padding: 4px 8px;
-  background: var(--accent-soft);
-  border-radius: 999px;
-}
-
-.metrics-main {
+.metrics-header {
+  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .metric-big {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
 }
 
@@ -198,37 +202,36 @@ nav {
 }
 
 .metrics-sub {
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
 .metrics-chip {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
   color: var(--muted);
-  font-size: 12px;
-  margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 .metrics-dot {
   width: 6px;
   height: 6px;
   background: var(--accent);
-  border-radius: 999px;
+  border-radius: 20px;
 }
 
-/* MAIN LAYOUT */
-main {
-  flex: 1;
-}
-
+/* ----------------------------------------------------
+   MAIN LAYOUT
+-----------------------------------------------------*/
 .layout-main {
   display: flex;
   gap: 20px;
-  padding: 20px 30px 30px 30px;
+  padding: 0 30px 30px 30px;
 }
 
-/* CARDS */
+/* ----------------------------------------------------
+   CARD
+-----------------------------------------------------*/
 .card {
   background: var(--card);
   border-radius: var(--radius-xl);
@@ -240,31 +243,35 @@ main {
 }
 
 .card-header {
-  padding: 16px 18px;
+  padding: 20px;
   border-bottom: 1px solid var(--border);
 }
 
 .card-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
 }
 
 .card-subtitle {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
   margin-top: 2px;
 }
 
+/* ----------------------------------------------------
+   TABLE STYLING
+-----------------------------------------------------*/
 .table-container {
-  flex: 1;
+  padding: 0;
+  margin: 0;
   overflow-y: auto;
+  flex: 1;
 }
 
-/* TABLES */
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 thead {
@@ -272,13 +279,12 @@ thead {
 }
 
 th, td {
-  padding: 8px 12px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border);
-  white-space: nowrap;
 }
 
 tbody tr:hover {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.05);
 }
 
 /* CLICKABLE LEVEL ROWS */
@@ -290,20 +296,21 @@ tbody tr:hover {
   background: rgba(91,140,255,0.15) !important;
 }
 
-/* FORMS */
+/* ----------------------------------------------------
+   FORMS
+-----------------------------------------------------*/
 .form {
-  padding: 16px 18px 20px 18px;
+  padding: 20px;
 }
 
 .form-row {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .form-row label {
   margin-bottom: 6px;
-  font-size: 13px;
   color: var(--muted);
 }
 
@@ -311,66 +318,82 @@ input {
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 8px 10px;
-  font-size: 13px;
+  padding: 10px;
+  font-size: 14px;
   color: var(--text);
 }
 
 .btn {
   background: var(--accent);
-  color: #fff;
+  padding: 12px 20px;
   border: none;
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-size: 14px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .btn:hover {
   background: var(--accent-strong);
 }
 
-.info-text {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 6px;
-}
-
-/* GUIDELINES */
-.guidelines-list {
-  padding: 16px 20px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* CONTACT */
+/* ----------------------------------------------------
+   CONTACT
+-----------------------------------------------------*/
 .contact-card {
   background: var(--bg-alt);
-  margin: 16px 18px;
-  padding: 14px;
+  padding: 18px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  font-size: 13px;
 }
 
-.contact-link {
+.contact-card a {
   color: var(--accent);
   text-decoration: none;
 }
 
-/* PAGE VIEWS (RIGHT SIDE) */
+/* ----------------------------------------------------
+   GUIDELINES
+-----------------------------------------------------*/
+.guidelines-list {
+  padding: 20px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ----------------------------------------------------
+   FOOTER
+-----------------------------------------------------*/
+footer {
+  padding: 20px 30px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-alt);
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-chip {
+  background: var(--accent-soft);
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.footer-right {
+  display: flex;
+  gap: 10px;
+}
+
+/* ----------------------------------------------------
+   PAGE VIEWS
+-----------------------------------------------------*/
 .page-view {
   display: none;
-  flex-direction: column;
-  flex: 1;
 }
 
 .page-view.active {
-  display: flex;
+  display: block;
 }
-
-.page-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
