@@ -8,6 +8,7 @@
 
 // List levels – edit / add your own
 const levels = [
+ const levels = [
   {
     id: 1,
     name: "PLACEHOLDER",
@@ -17,53 +18,24 @@ const levels = [
     requirement: "100%",
     position: 1,
     cps: 15,
-    objectCount: 120000
+    objectCount: 120000,
+    videoUrl: "https://www.youtube.com/watch?v=XXXXXXXXXXX"
   },
   {
     id: 2,
     name: "PLACEHOLDER",
     creator: "PLACEHOLDER",
     verifier: "PLACEHOLDER",
-    difficulty: "PLACEHOLDER",
+    difficulty: "Extreme Demon",
     requirement: "100%",
     position: 2,
     cps: 13,
-    objectCount: 95000
+    objectCount: 95000,
+    videoUrl: "https://www.youtube.com/watch?v=YYYYYYYYYYY"
   },
-  {
-    id: 3,
-    name: "PLACEHOLDER",
-    creator: "PLACEHOLDER",
-    verifier: "PLACEHOLDER",
-    difficulty: "PLACEHOLDER",
-    requirement: "100%",
-    position: 3,
-    cps: 12,
-    objectCount: 80000
-  },
-  {
-    id: 4,
-    name: "PLACEHOLDER",
-    creator: "PLACEHOLDER",
-    verifier: "PLACEHOLDER",
-    difficulty: "PLACEHOLDER",
-    requirement: "100%",
-    position: 4,
-    cps: 11,
-    objectCount: 70000
-  },
-  {
-    id: 5,
-    name: "PLACEHOLDER",
-    creator: "PLACEHOLDER",
-    verifier: "PLACEHOLDER",
-    difficulty: "PLACEHOLDERn",
-    requirement: "100%",
-    position: 5,
-    cps: 10,
-    objectCount: 60000
-  }
+  // ...rest of your levels
 ];
+
 
 // Player rankings – edit / add your own
 const players = [
@@ -317,8 +289,11 @@ function renderListTable() {
 
   const rows = sorted.map(level => {
     const diffClass = getDifficultyClass(level.difficulty);
+    const clickableClass = level.videoUrl ? "level-clickable" : "";
+    const videoAttr = level.videoUrl ? ` data-video-url="${level.videoUrl}"` : "";
+
     return `
-      <tr>
+      <tr class="${clickableClass}"${videoAttr}>
         <td>#${level.position}</td>
         <td class="level-name">${level.name}</td>
         <td>${level.creator}</td>
@@ -329,6 +304,37 @@ function renderListTable() {
       </tr>
     `;
   }).join("");
+
+  container.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Level</th>
+          <th>Creator</th>
+          <th>Verifier</th>
+          <th>Difficulty</th>
+          <th>Req.</th>
+          <th>Objects</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows}
+      </tbody>
+    </table>
+  `;
+
+  // make rows with videoUrl clickable
+  const clickableRows = container.querySelectorAll("tbody tr.level-clickable");
+  clickableRows.forEach(row => {
+    const url = row.dataset.videoUrl;
+    if (!url) return;
+    row.addEventListener("click", () => {
+      window.open(url, "_blank", "noopener");
+    });
+  });
+}
+
 
   container.innerHTML = `
     <table>
@@ -547,4 +553,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLanguageSwitcher();
   setupForms();
 });
+
 
