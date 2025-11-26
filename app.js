@@ -97,7 +97,7 @@ const players = [
     points: 0,
     listRecords: 0,
     hardest: "Windy Landscape",
-    rank: 0
+    rank: 4
   }
 ];
 
@@ -547,3 +547,4 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLanguageSwitcher();
   setupForms();
 });
+
