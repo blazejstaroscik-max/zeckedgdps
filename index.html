@@ -4,137 +4,246 @@
   <meta charset="UTF-8" />
   <title>GD Private Server Demonlist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fonts -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <!-- CSS + JS -->
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
 </head>
-
 <body>
 <div class="app-shell">
 
   <!-- HEADER -->
   <header>
     <div class="brand">
-      <div class="brand-logo"><div class="brand-logo-inner">DL</div></div>
+      <div class="brand-logo">
+        <div class="brand-logo-inner">DL</div>
+      </div>
       <div class="brand-text">
         <div class="brand-title">Private Server Demonlist</div>
-        <div class="brand-sub">Geometry Dash records & rankings</div>
+        <div class="brand-sub">Geometry Dash records &amp; rankings</div>
       </div>
     </div>
 
     <div class="header-main">
       <nav>
-        <button class="nav-link active" data-page="list">The List</button>
-        <button class="nav-link" data-page="players">Player Rankings</button>
-        <button class="nav-link" data-page="submit">Record Submissions</button>
-        <button class="nav-link" data-page="account">Account Creation</button>
-        <button class="nav-link" data-page="guidelines">Guidelines</button>
-        <button class="nav-link" data-page="contact">Contact</button>
+        <button class="nav-link active" data-page="list">
+          <span>The List</span>
+          <span class="nav-badge" id="nav-list-count">0</span>
+        </button>
+        <button class="nav-link" data-page="players">
+          <span>Player Rankings</span>
+        </button>
+        <button class="nav-link" data-page="submit">
+          <span>Record Submissions</span>
+        </button>
+        <button class="nav-link" data-page="account">
+          <span>Account Creation</span>
+        </button>
+        <button class="nav-link" data-page="guidelines">
+          <span>Guidelines</span>
+        </button>
+        <button class="nav-link" data-page="contact">
+          <span>Contact</span>
+        </button>
       </nav>
 
       <div class="header-right">
         <div class="lang-switcher">
           <span>Language</span>
-          <select id="lang-select">
+          <select id="lang-select" aria-label="Language">
             <option value="en">English</option>
             <option value="pl">Polski</option>
             <option value="ru">Русский</option>
           </select>
         </div>
+        <div class="pill-indicator" id="header-indicator">
+          Online demon submissions enabled
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- MAIN -->
+  <!-- TOP METRICS -->
+  <div class="top-row">
+    <section class="metrics-card">
+      <div class="metrics-header">
+        <div class="metrics-title">Server Overview</div>
+        <span class="badge" id="metrics-season">Season 1</span>
+      </div>
+      <div class="metrics-main">
+        <div class="metric-big">
+          <span id="metrics-level-count">0</span>
+          <span class="small">levels tracked</span>
+        </div>
+        <div class="metrics-sub">
+          <div class="metrics-chip">
+            <div class="metrics-dot"></div>
+            Active players: <strong id="metrics-player-count">0</strong>
+          </div>
+          <div class="metrics-chip">
+            <div class="metrics-dot" style="background: var(--success)"></div>
+            Total records: <strong id="metrics-record-count">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics-card">
+      <div class="metrics-header">
+        <div class="metrics-title">Highlight</div>
+      </div>
+      <div class="metrics-main">
+        <div>
+          <div class="card-title" id="highlight-level-name">Placeholder</div>
+          <div class="info-text" id="highlight-level-meta">Placeholder</div>
+        </div>
+        <div>
+          <span class="pill-small pill-success" id="highlight-status">
+            Top Demon
+          </span>
+        </div>
+      </div>
+      <div class="metrics-sub">
+        <div class="metrics-chip">
+          Submit a record to claim a spot on the list.
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MAIN 2-COLUMN LAYOUT -->
   <main>
     <div class="layout-main">
-
-      <!-- LEFT CARD — THE LIST -->
+      <!-- LEFT: THE LIST -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title">The List</div>
-          <div class="card-subtitle">Placeholder</div>
+          <div>
+            <div class="card-title">The List</div>
+            <div class="card-subtitle">Placeholder</div>
+          </div>
         </div>
-
-        <div class="placeholder-box">
-          <p>Placeholder</p>
+        <div class="table-container scroll-y" id="list-table-container">
+          <!-- Filled by JS -->
         </div>
       </div>
 
-      <!-- RIGHT CARD — DYNAMIC PAGE VIEWS -->
+      <!-- RIGHT: PAGE VIEWS -->
       <div class="card">
 
-        <!-- PLAYER RANKINGS -->
+        <!-- PLAYERS VIEW -->
         <div class="page-view active" data-view="players">
           <div class="card-header">
-            <div class="card-title">Player Rankings</div>
-            <div class="card-subtitle">Placeholder</div>
+            <div>
+              <div class="card-title">Player Rankings</div>
+              <div class="card-subtitle">Placeholder</div>
+            </div>
           </div>
-
-          <div class="placeholder-box">
-            <p>Placeholder</p>
+          <div class="table-container scroll-y" id="players-table-container">
+            <!-- Filled by JS -->
           </div>
         </div>
 
-        <!-- SUBMIT VIEW -->
+        <!-- SUBMIT VIEW (MS FORM) -->
         <div class="page-view" data-view="submit">
           <div class="card-header">
-            <div class="card-title">Submit a Record</div>
-            <div class="card-subtitle">Use the form below.</div>
+            <div>
+              <div class="card-title">Submit a Record</div>
+              <div class="card-subtitle">Use the Microsoft Form below to submit records.</div>
+            </div>
           </div>
-
           <div class="page-body">
-            <iframe
-              width="100%"
-              height="500"
-              style="border:none"
-              src="https://forms.office.com/Pages/ResponsePage.aspx?id=_j_KcdCNmEqH7icfHn5_ZX9Us3dn0ZxNtZ9iZguy_KRUMTBBWlVUQkRWS1RET0NITFpSVEExQkpCSy4u">
-            </iframe>
+            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);margin-top:6px;">
+              <iframe
+                width="100%"
+                height="500"
+                src="https://forms.office.com/Pages/ResponsePage.aspx?id=_j_KcdCNmEqH7icfHn5_ZX9Us3dn0ZxNtZ9iZguy_KRUMTBBWlVUQkRWS1RET0NITFpSVEExQkpCSy4u"
+                frameborder="0"
+                marginwidth="0"
+                marginheight="0"
+                style="border:none;"
+                allowfullscreen
+                webkitallowfullscreen
+                mozallowfullscreen
+                msallowfullscreen>
+              </iframe>
+            </div>
           </div>
         </div>
 
-        <!-- ACCOUNT CREATION -->
+        <!-- ACCOUNT VIEW -->
         <div class="page-view" data-view="account">
           <div class="card-header">
-            <div class="card-title">Create Account</div>
-            <div class="card-subtitle">Placeholder</div>
+            <div>
+              <div class="card-title">Create Account</div>
+              <div class="card-subtitle">Placeholder (frontend-only demo).</div>
+            </div>
           </div>
-
-          <div class="placeholder-box">
-            <p>Placeholder</p>
+          <div class="page-body">
+            <form class="form" id="account-form">
+              <div class="form-row">
+                <label for="account-username">Username</label>
+                <input id="account-username" required />
+              </div>
+              <div class="form-row">
+                <label for="account-email">Email</label>
+                <input id="account-email" type="email" required />
+              </div>
+              <div class="form-row">
+                <label for="account-password">Password</label>
+                <input id="account-password" type="password" required />
+              </div>
+              <div class="form-row">
+                <label for="account-password2">Confirm password</label>
+                <input id="account-password2" type="password" required />
+              </div>
+              <button type="submit" class="btn">Create account</button>
+              <p class="info-text" id="account-feedback"></p>
+            </form>
           </div>
         </div>
 
-        <!-- GUIDELINES -->
+        <!-- GUIDELINES VIEW -->
         <div class="page-view" data-view="guidelines">
           <div class="card-header">
-            <div class="card-title">Guidelines</div>
-            <div class="card-subtitle">Placeholder</div>
+            <div>
+              <div class="card-title">Guidelines</div>
+              <div class="card-subtitle">Placeholder</div>
+            </div>
           </div>
-
-          <div class="placeholder-box">
-            <p>Placeholder</p>
+          <div class="page-body scroll-y">
+            <ul class="guidelines-list">
+              <li>Placeholder</li>
+              <li>Placeholder</li>
+              <li>Placeholder</li>
+              <li>Placeholder</li>
+            </ul>
           </div>
         </div>
 
-        <!-- CONTACT -->
+        <!-- CONTACT VIEW -->
         <div class="page-view" data-view="contact">
           <div class="card-header">
-            <div class="card-title">Contact</div>
-            <div class="card-subtitle">Placeholder</div>
+            <div>
+              <div class="card-title">Contact &amp; Support</div>
+              <div class="card-subtitle">Placeholder</div>
+            </div>
           </div>
-
-          <div class="placeholder-box">
-            <p>Join our Discord: discord.gg/YOUR_INVITE</p>
+          <div class="page-body">
+            <div class="contact-card">
+              <div>Official Demonlist Discord:</div>
+              <a href="https://discord.gg/YOUR_DISCORD_INVITE" target="_blank" class="contact-link" rel="noopener">
+                discord.gg/YOUR_DISCORD_INVITE
+              </a>
+              <div class="info-text">
+                Placeholder - use #support for questions.
+              </div>
+            </div>
           </div>
         </div>
 
-      </div>
-    </div>
+      </div> <!-- /right card -->
+    </div> <!-- /layout-main -->
   </main>
 
   <!-- FOOTER -->
@@ -142,6 +251,7 @@
     <div>Private Server Demonlist</div>
     <div class="footer-right">
       <span class="footer-chip">Frontend v1.0</span>
+      <span class="footer-chip">Status: beta</span>
     </div>
   </footer>
 
