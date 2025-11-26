@@ -16,205 +16,96 @@
 <body>
 <div class="app-shell">
 
-  <!-- -----------------------------------------
-       HEADER / NAVBAR
-  ------------------------------------------ -->
+  <!-- HEADER -->
   <header>
     <div class="brand">
-      <div class="brand-logo">
-        <div class="brand-logo-inner">DL</div>
-      </div>
+      <div class="brand-logo"><div class="brand-logo-inner">DL</div></div>
       <div class="brand-text">
-        <div class="brand-title" data-i18n="brand_title">Private Server Demonlist</div>
-        <div class="brand-sub" data-i18n="brand_sub">Geometry Dash records & rankings</div>
+        <div class="brand-title">Private Server Demonlist</div>
+        <div class="brand-sub">Geometry Dash records & rankings</div>
       </div>
     </div>
 
     <div class="header-main">
       <nav>
-        <button class="nav-link active" data-page="list">
-          <span>The List</span>
-          <span class="nav-badge" id="nav-list-count">0</span>
-        </button>
-        <button class="nav-link" data-page="players">
-          <span>Player Rankings</span>
-        </button>
-        <button class="nav-link" data-page="submit">
-          <span>Record Submissions</span>
-        </button>
-        <button class="nav-link" data-page="account">
-          <span>Account Creation</span>
-        </button>
-        <button class="nav-link" data-page="guidelines">
-          <span>Guidelines</span>
-        </button>
-        <button class="nav-link" data-page="contact">
-          <span>Contact</span>
-        </button>
+        <button class="nav-link active" data-page="list">The List</button>
+        <button class="nav-link" data-page="players">Player Rankings</button>
+        <button class="nav-link" data-page="submit">Record Submissions</button>
+        <button class="nav-link" data-page="account">Account Creation</button>
+        <button class="nav-link" data-page="guidelines">Guidelines</button>
+        <button class="nav-link" data-page="contact">Contact</button>
       </nav>
 
       <div class="header-right">
         <div class="lang-switcher">
           <span>Language</span>
-          <select id="lang-select" aria-label="Language">
+          <select id="lang-select">
             <option value="en">English</option>
             <option value="pl">Polski</option>
             <option value="ru">Русский</option>
           </select>
         </div>
-
-        <div class="pill-indicator" id="header-indicator">Online demon submissions enabled</div>
       </div>
     </div>
   </header>
 
-  <!-- -----------------------------------------
-       MAIN CONTENT
-  ------------------------------------------ -->
+  <!-- MAIN -->
   <main>
-
-    <!-- Quick Stats (still functional) -->
-    <div class="top-row">
-      <section class="metrics-card">
-        <div class="metrics-header">
-          <div class="metrics-title">Server Overview</div>
-          <span class="badge" id="metrics-season">Season 1</span>
-        </div>
-
-        <div class="metrics-main">
-          <div class="metric-big">
-            <span id="metrics-level-count">0</span>
-            <span class="small">levels tracked</span>
-          </div>
-          <div class="metrics-sub">
-            <div class="metrics-chip">
-              <div class="metrics-dot"></div>
-              Active players: <strong id="metrics-player-count">0</strong>
-            </div>
-            <div class="metrics-chip">
-              <div class="metrics-dot" style="background: var(--success)"></div>
-              Total records: <strong id="metrics-record-count">0</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="metrics-card">
-        <div class="metrics-header">
-          <div class="metrics-title">Highlight</div>
-        </div>
-
-        <div class="metrics-main">
-          <div>
-            <div class="card-title" id="highlight-level-name">–</div>
-            <div class="info-text" id="highlight-level-meta">–</div>
-          </div>
-          <div>
-            <span class="pill-small pill-success" id="highlight-status">Top Demon</span>
-          </div>
-        </div>
-
-        <div class="metrics-sub">
-          <div class="metrics-chip">Submit a record to claim a spot.</div>
-        </div>
-      </section>
-    </div>
-
-
-    <!-- -----------------------------------------
-         LEFT + RIGHT MAIN LAYOUT
-    ------------------------------------------ -->
     <div class="layout-main">
 
-      <!-- LEFT CARD: LIST -->
+      <!-- LEFT CARD — THE LIST -->
       <div class="card">
         <div class="card-header">
-          <div>
-            <div class="card-title">The List</div>
-            <div class="card-subtitle">Ranked demons for this private server.</div>
-          </div>
+          <div class="card-title">The List</div>
+          <div class="card-subtitle">Placeholder</div>
         </div>
 
-        <div class="table-container scroll-y" id="list-table-container">
-          <!-- Will be replaced by "Placeholder" -->
+        <div class="placeholder-box">
+          <p>Placeholder</p>
         </div>
       </div>
 
-
-      <!-- RIGHT CARD: DYNAMIC VIEWS -->
+      <!-- RIGHT CARD — DYNAMIC PAGE VIEWS -->
       <div class="card">
 
-        <!-- PLAYERS VIEW -->
+        <!-- PLAYER RANKINGS -->
         <div class="page-view active" data-view="players">
           <div class="card-header">
-            <div>
-              <div class="card-title">Player Rankings</div>
-              <div class="card-subtitle">Placeholder</div>
-            </div>
+            <div class="card-title">Player Rankings</div>
+            <div class="card-subtitle">Placeholder</div>
           </div>
 
           <div class="placeholder-box">
-            <p>Player rankings will appear here.</p>
+            <p>Placeholder</p>
           </div>
         </div>
 
         <!-- SUBMIT VIEW -->
         <div class="page-view" data-view="submit">
           <div class="card-header">
-            <div>
-              <div class="card-title">Submit a Record</div>
-              <div class="card-subtitle">Use the Microsoft Form below.</div>
-            </div>
+            <div class="card-title">Submit a Record</div>
+            <div class="card-subtitle">Use the form below.</div>
           </div>
 
           <div class="page-body">
-            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);margin-top:6px;">
-              <iframe
-                width="100%"
-                height="500"
-                src="https://forms.office.com/Pages/ResponsePage.aspx?id=_j_KcdCNmEqH7icfHn5_ZX9Us3dn0ZxNtZ9iZguy_KRUMTBBWlVUQkRWS1RET0NITFpSVEExQkpCSy4u"
-                frameborder="0"
-                allowfullscreen
-                style="border:none">
-              </iframe>
-            </div>
+            <iframe
+              width="100%"
+              height="500"
+              style="border:none"
+              src="https://forms.office.com/Pages/ResponsePage.aspx?id=_j_KcdCNmEqH7icfHn5_ZX9Us3dn0ZxNtZ9iZguy_KRUMTBBWlVUQkRWS1RET0NITFpSVEExQkpCSy4u">
+            </iframe>
           </div>
         </div>
 
-        <!-- ACCOUNT CREATION VIEW -->
+        <!-- ACCOUNT CREATION -->
         <div class="page-view" data-view="account">
           <div class="card-header">
-            <div>
-              <div class="card-title">Create Account</div>
-              <div class="card-subtitle">Accounts will allow record submissions.</div>
-            </div>
+            <div class="card-title">Create Account</div>
+            <div class="card-subtitle">Placeholder</div>
           </div>
 
-          <div class="page-body">
-            <form class="form" id="account-form">
-              <div class="form-row">
-                <label>Username</label>
-                <input id="account-username" required />
-              </div>
-
-              <div class="form-row">
-                <label>Email</label>
-                <input type="email" id="account-email" required />
-              </div>
-
-              <div class="form-row">
-                <label>Password</label>
-                <input type="password" id="account-password" required />
-              </div>
-
-              <div class="form-row">
-                <label>Confirm password</label>
-                <input type="password" id="account-password2" required />
-              </div>
-
-              <button class="btn" type="submit">Create account</button>
-              <p class="info-text" id="account-feedback"></p>
-            </form>
+          <div class="placeholder-box">
+            <p>Placeholder</p>
           </div>
         </div>
 
@@ -222,16 +113,11 @@
         <div class="page-view" data-view="guidelines">
           <div class="card-header">
             <div class="card-title">Guidelines</div>
-            <div class="card-subtitle">Rules for submitting records.</div>
+            <div class="card-subtitle">Placeholder</div>
           </div>
 
-          <div class="page-body scroll-y">
-            <ul class="guidelines-list">
-              <li>Record must be from this server.</li>
-              <li>No hacks or speed mods.</li>
-              <li>Video must clearly show legitimacy.</li>
-              <li>Mods may request proof.</li>
-            </ul>
+          <div class="placeholder-box">
+            <p>Placeholder</p>
           </div>
         </div>
 
@@ -239,32 +125,23 @@
         <div class="page-view" data-view="contact">
           <div class="card-header">
             <div class="card-title">Contact</div>
-            <div class="card-subtitle">Discord community & staff support.</div>
+            <div class="card-subtitle">Placeholder</div>
           </div>
 
-          <div class="page-body">
-            <div class="contact-card">
-              <div>Official Discord:</div>
-              <a href="https://discord.gg/YOUR_INVITE_HERE">discord.gg/YOUR_INVITE_HERE</a>
-              <div class="info-text">Use #support for help.</div>
-            </div>
+          <div class="placeholder-box">
+            <p>Join our Discord: discord.gg/YOUR_INVITE</p>
           </div>
         </div>
 
       </div>
     </div>
-
   </main>
 
-
-  <!-- -----------------------------------------
-       FOOTER
-  ------------------------------------------ -->
+  <!-- FOOTER -->
   <footer>
     <div>Private Server Demonlist</div>
     <div class="footer-right">
       <span class="footer-chip">Frontend v1.0</span>
-      <span class="footer-chip">Status: beta</span>
     </div>
   </footer>
 
